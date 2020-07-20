@@ -1,0 +1,35 @@
+import React, { Component } from 'react';
+
+class DataTable extends Component {
+    render() {
+        return (
+            <tr>
+                <td>
+                    {this.props.obj.id}
+                </td>
+               
+                <td>
+                    {this.props.obj.fileData}
+                </td>
+                <td>
+                    {this.props.obj.fileUri}
+                </td>
+                <td>
+                    <img src={ "http://192.168.43.41:3001/public/uploads/" + this.props.obj.filePath}/>
+                </td>
+                <td > 
+                <form onSubmit={this.handleEditSubmit}>
+                  <button type="submit" value= {this.props.obj.id} onClick={e => this.onEdit(e)}>Edit</button>
+              </form>
+              </td>
+              <td>
+               <form onSubmit={this.handleSubmit}>
+                  <button type="submit" value= {this.props.obj.id} onClick={e => this.onClick(e)}>Delete</button>
+              </form>
+                </td>
+            </tr>
+        );
+    }
+}
+
+export default DataTable;
