@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route,NavLink ,Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
@@ -22,29 +22,28 @@ import { SideNav } from 'react-simple-sidenav'
 class App extends Component {
   render() {
     return (
-   
-       <Router >
+
+      <Router >
         <div className="App">
-     
           <div className="App__Aside"></div>
           <div className="App__Form">
-          <Navbar/>
-          <SideNav/>
+            <Navbar />
+            <SideNav />
+            <Switch>
               <Route exact path="/" component={Landing} />
-          <div className="container">
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/login" component={Login} />
-            <div> <Route exact path="/profile" component={Profile} /> </div>
-            <div> <Route exact path="/Navbar" component={Navbar} /> </div>
-            <div> <Route exact path="/Insert" component={Insert} /> </div>
-            <div> <Route exact path="/Incident" component={Incident} /> </div>
-            </div>
-         
+              <div className="container">
+                <Route exact path="/register" component={Register} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/profile" component={Profile} />
+                <Route exact path="/Navbar" component={Navbar} />
+                <Route exact path="/Insert" component={Insert} />
+                <Route exact path="/Incident" component={Incident} />
+              </div>
+            </Switch>
           </div>
-         
         </div>
       </Router>
-     
+
     )
   }
 }
@@ -66,7 +65,7 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-     
+
 <Router >
         <div className="App">
           <div className="App__Aside"></div>
@@ -91,7 +90,7 @@ class App extends Component {
         </div>
       </Router>
 
-       
+
 
     )
   }

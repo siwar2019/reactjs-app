@@ -1,35 +1,47 @@
 import React, { Component } from 'react';
+import axios from "axios"
+
 
 class DataTable2 extends Component {
+  
+    
+    handleDelete = ()=>{
+                 axios.delete("/delete/"+this.props.obj.id)
+                 .then(res => {
+                   console.log(res.data);
+                 
+                 })
+    }
+
+    
     render() {
+      const button = {
+        
+      color: "black",
+      backgroundColor: "#ff0000",
+     
+      fontFamily: "Arial",
+        
+   
+      };
         return (
             <tr>
                 <td>  {this.props.obj.id}   </td>
                 
-             {/*    <td>{this.props.obj.name}    </td> */}
-            
-                <td> {this.props.obj.filePath} </td>
                 <td> {this.props.obj.email} </td>
-                {/* //lahna yjib l'image men uploads selon esem image betbi3a ; bach ya3ref enahi limage b thabte   */}
-                <td>
-                <img height="130" width="130" src ={"http://192.168.43.41:3001/uploads/"+this.props.obj.filePath}/>
-                </td>
                 
-                <td>
-                <img height="130" width="130" src ={"http://192.168.43.41:3001/uploads/"+this.props.obj.video}/>
-                </td>
-                 <td>  {this.props.obj.description} </td>
-                 <td>  {this.props.obj.incident_type} </td>
-                 <td>  {this.props.obj.position} </td>
+                 <td>  {this.props.obj.firstname} </td>
+                 <td>  {this.props.obj.lastname} </td>
+                 <td>  {this.props.obj.address} </td>
+                 <td>  {this.props.obj.tel} </td>
                 <td > 
-                <form onSubmit={this.handleEditSubmit}>
-                  <button type="submit" value= {this.props.obj.id} onClick={e => this.onEdit(e)}>Edit</button>
-              </form>
-              </td>
+             
+                  <button style={button} value= {this.props.obj.id} onClick={this.handleDelete} >Block</button>              </td>
               <td>
-               <form onSubmit={this.handleSubmit}>
-                  <button type="submit" value= {this.props.obj.id} onClick={e => this.onClick(e)}>Delete</button>
-              </form>
+              {/*  <form >
+                  <button type="submit" value= {this.props.obj.id} onClick={e => this.onClick(e)}>Confident</button>
+              </form> */}
+          
                 </td>
             </tr>
         );

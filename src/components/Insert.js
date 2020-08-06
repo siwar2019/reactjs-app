@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable from '../components/DataTable';
-
+//insert+datatable..interface incidents
 export default class Landing extends Component {
 
     constructor(props) {
@@ -9,8 +9,11 @@ export default class Landing extends Component {
         this.state = { usersCollection: [] };
     }
 
+   
+    //
+    
     componentDidMount() {
-        axios.get('http://192.168.43.41:3000/utilisateur')
+        axios.get('/utilisateur')
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -18,6 +21,7 @@ export default class Landing extends Component {
                 console.log(error);
             })
     }
+
 
     dataTable() {
         return this.state.usersCollection.map((data, i) => {
@@ -31,12 +35,22 @@ export default class Landing extends Component {
                 <div className="container">
                     <table className="table table-striped table-dark">
                         <thead className="thead-dark">
-                            <tr>
+                        <tr>
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Email</td>
-                                <td>img</td>
+
+                                <td>Images</td>
+
+                                <td>Vidéos</td>
+
+                                <td>Description</td>
+                                
+                                <td>Incident type</td>
+                                <td>Position</td>
+
                                 <td rowSpan="2">Actions</td>
+                            
                             </tr>
                         </thead>
                         <tbody>

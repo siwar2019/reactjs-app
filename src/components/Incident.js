@@ -2,15 +2,17 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DataTable2 from './DataTable2';
 
+//incident+++ datatable2 .....interface users
 export default class Incident extends Component {
 
     constructor(props) {
         super(props);
         this.state = { usersCollection: [] };
     }
+    
 
     componentDidMount() {
-        axios.get('http://192.168.43.41:3000/imageselect')
+        axios.get('/utilisateur')
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -33,15 +35,13 @@ export default class Incident extends Component {
                         <thead className="thead-dark">
                             <tr>
                                 <td>ID</td>
-                                <td>Name</td>
                                 <td>Email</td>
 
-                                <td>Images</td>
-                                <td>Vidéos</td>
-                                <td>Description</td>
-                                <td>Incident type</td>
-                                <td>Position</td>
-
+                                <td>FirstName</td>
+                                <td>LastName</td>
+                                <td>Address</td>
+                                <td>télephone Number</td>
+                            
                                 <td rowSpan="2">Actions</td>
                             </tr>
                         </thead>
