@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 class DataTable extends Component {
+    //insert les incidents +datatable
     handleDelete = () => {
-        axios.delete("/delete/" + this.props.obj.id)
+        axios.delete("http://192.168.43.41:5000/delete/" + this.props.obj.id)
             .then(res => {
                 console.log(res.data);
             })
@@ -28,12 +29,12 @@ class DataTable extends Component {
 
                 {/* //lahna yjib l'image men uploads selon esem image betbi3a ; bach ya3ref enahi limage b thabte   */}
                 <td>
-                    <img height="130" width="130" src={"/uploads/" + this.props.obj.image} />
+                    <img height="130" width="130" src={"http://192.168.43.41:3001/uploads/"+ this.props.obj.image} />
                 </td>
 
                 <td>
 
-                    <video height="130" width="130" src={"/uploads/" + this.props.obj.video} /> lahna, deja lazem nraj3ou url
+                    <video height="130" width="130" src={"http://192.168.43.41:3001/uploads/" + this.props.obj.video} />
                 </td>
                 <td>  {this.props.obj.description} </td>
                 <td>  {this.props.obj.incident_type} </td>
@@ -44,11 +45,11 @@ class DataTable extends Component {
                         <button style={button} type="submit" value={this.props.obj.id} onClick={this.handleDelete}>Delete</button>
                     </form>
                 </td>
-                {/* <td>
+                <td>
                     <form onSubmit={this.handleSubmit}>
                         <button type="submit" value={this.props.obj.id} onClick={e => this.onClick(e)}>Download </button>
                     </form>
-                </td> */}
+                </td>
             </tr>
         );
     }
