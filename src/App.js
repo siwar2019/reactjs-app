@@ -9,7 +9,7 @@ import Profile from './components/Profile'
 
 import Insert from './components/Insert'
 import Incident from './components/Incident'
-
+import favoriteliste from './components/favoriteliste'
 import sidenav from './components/sidenav'
 
 
@@ -38,6 +38,9 @@ class App extends Component {
                 <Route exact path="/Navbar" component={Navbar} />
                 <Route exact path="/Insert" component={Insert} />
                 <Route exact path="/Incident" component={Incident} />
+                <Route exact path="/favoriteliste" component={favoriteliste} />
+
+          
               </div>
             </Switch>
           </div>

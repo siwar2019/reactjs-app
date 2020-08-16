@@ -5,13 +5,14 @@ import { IoMdHeartEmpty,IoMdHeart,IoIosRemoveCircleOutline } from "react-icons/i
 
 class DataTable2 extends Component {
   handleDelete = () => {
+    if (window.confirm("Are you sure you want to bock this Witness?")) {
     axios.delete("http://192.168.43.41:5000/delete/" + this.props.obj.id)
         .then(res => {
          
             console.log(res.data);
         })
-}
-//
+}}
+//api tester si user est favoris ou nn avec la valeur isconfident
 
 modifyIsConfident = isConfidentValue => {
   return axios
@@ -19,7 +20,7 @@ modifyIsConfident = isConfidentValue => {
       isConfident: isConfidentValue,
     })
     .then(response => {
-      console.log('Registered')
+      console.log('confident')
     })
 }
 confiant = () => {
@@ -54,11 +55,14 @@ confiant = () => {
                  <td>  {this.props.obj.address} </td>
                  <td>  {this.props.obj.tel} </td>
                  <td >
+                
                     <form >
-                        <button style={{color:'wite',raduis:'20',borderRadius:30}}>
+
+                        <button style={{color:'wite',raduis:'20',borderRadius:30}}
+                        onClick={() =>  this.handleDelete()  }>
                         <IoIosRemoveCircleOutline style={{color:'red',width:'25',height:'25'}}
 
-                         value={this.props.obj.id} onClick={this.handleDelete}> 
+                         > 
                         </IoIosRemoveCircleOutline>
                         </button>
                         
@@ -72,9 +76,9 @@ confiant = () => {
                          async () => {
                            await this.modifyIsConfident(false)
                           }
-                        }>delete user from list confident></IoMdHeart>
-                         : 
-                         <IoMdHeartEmpty  value={this.props.obj.id} style={{width:"25",height:"25"}} onClick={
+                        }></IoMdHeart>
+                         : //else
+                         <IoMdHeartEmpty style={{width:"25",height:"25"}} onClick={
                           async () => {
                             await this.modifyIsConfident(true)
                            }

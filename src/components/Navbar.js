@@ -56,6 +56,12 @@ class Landing extends Component {
           </li>
           <li className="nav-item">
           
+          <NavLink  to="/favoriteliste" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">
+               Confident Users
+            </NavLink >
+          </li>
+          <li className="nav-item">
+          
           <NavLink  to="/Login" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item" onClick={this.logOut.bind(this)}>
             Logout
             </NavLink >
