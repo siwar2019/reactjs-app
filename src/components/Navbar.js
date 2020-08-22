@@ -51,13 +51,13 @@ class Landing extends Component {
           <li className="nav-item">
           
           <NavLink  to="/Incident" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">
-              Users
+          Witnesses
             </NavLink >
           </li>
           <li className="nav-item">
           
           <NavLink  to="/favoriteliste" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">
-               Confident Users
+               Confident  Witnesses
             </NavLink >
           </li>
           <li className="nav-item">

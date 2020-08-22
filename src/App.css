@@ -15,7 +15,7 @@
   background-color: rgb(218, 102, 208);
 }
 .App__Form {
-  width: 65%;
+  width: 100%;
   background-color: rgb(254, 254, 255);
   padding: 25px 40px;
   overflow: auto;

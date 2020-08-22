@@ -13,7 +13,7 @@ export default class Landing extends Component {
     //
     
     componentDidMount() {
-        axios.get('/utilisateur')
+        axios.get('/incident')
             .then(res => {
                 this.setState({ usersCollection: res.data });
             })
@@ -37,8 +37,8 @@ export default class Landing extends Component {
                         <thead className="thead-dark">
                         <tr>
                                 <td>ID</td>
-                                <td>Name</td>
-                                <td>Email</td>
+                               
+                                <td>User Email</td>
 
                                 <td>Images</td>
 
